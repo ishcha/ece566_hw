@@ -30,8 +30,8 @@ for i in range(1,iters):
     X_2.append(step(X_2[i-1],i,step_size_exp[1]))
     # print(X[i])
     
-X_1 = [np.mean(X_1[:(i+1)]) for i in range(1,iters+1)] if average_sgd else X_1
-X_2 = [np.mean(X_2[:(i+1)]) for i in range(1,iters+1)] if average_sgd else X_2
+X_1 = [np.mean(X_1[:(i)]) for i in range(1,iters+1)] if average_sgd else X_1
+X_2 = [np.mean(X_2[:i]) for i in range(1,iters+1)] if average_sgd else X_2
     
 plt.plot(k, X_1, label=f'$k^{{{step_size_exp[0]}}}$')
 plt.plot(k, X_2, label=f'$k^{{{step_size_exp[1]}}}$')
