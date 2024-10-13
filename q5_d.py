@@ -2,6 +2,7 @@ import numpy as np
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+import multiprocessing as mp
 
 np.random.seed(0)
 
@@ -40,43 +41,45 @@ def true_observations(x0,T):
     return observations, states
 
 observations, states = true_observations(x,T)
-x = [x]*n
 
-mc_iters = 2 # change to 1 for part a
 
-mean_estimation_errors = [0]*T
-mean_prediction_errors = [0]*T
+mc_iters = 100 # change to 1 for part a
 
-for _ in range(mc_iters):
 
+def errors(my_iter, x):
     estimators = []
     predictors = []
+    x = [x]*n
 
-    for t in tqdm(range(1,T+1)):
-        
+    for t in (range(1,T+1)):
         x_star = [sample_from_distribution(*transition_distribution(x[i], t)) for i in range(len(x))]
-        # print(states[t-1],observations[t-1])
-        
+    
         pdf_obs = [stats.norm.pdf(observations[t-1],*observation_distribution(x_s)) for x_s in x_star]
-        
+    
         weights = [pdf_obs[i]/np.sum(pdf_obs) for i in range(len(pdf_obs))]
-        # print(sum(weights))
-        # exit()
-        
+    
         idxs = range(len(x_star))
         idxs = np.random.choice(idxs, n, p=weights)
         x = [x_star[i] for i in idxs]
         estimators.append(np.mean(x))
         predictors.append(np.mean(x_star))
-        
-    estimation_error = [(estimators[i]-states[i]) for i in range(T)]
-    predictor_error = [(predictors[i]-states[i]) for i in range(T)]
     
-    mean_estimation_errors = [mean_estimation_errors[i] + estimation_error[i] for i in range(T)]
-    mean_prediction_errors = [mean_prediction_errors[i] + predictor_error[i] for i in range(T)]
+    estimation_error = [(estimators[i]-states[i])**2 for i in range(T)]
+    predictor_error = [(predictors[i]-states[i])**2 for i in range(T)]
+    print(my_iter)
+    return estimation_error,predictor_error
+
+num_processes = 10
+
+with mp.Pool(processes=num_processes) as pool:
+    results = pool.starmap_async(errors, [(k_itr, x) for k_itr in range(mc_iters)]).get()
     
-mean_estimation_errors = [mean_estimation_errors[i]/mc_iters for i in range(T)]
-mean_prediction_errors = [mean_prediction_errors[i]/mc_iters for i in range(T)]
+
+mean_estimation_errors = [results[i][0] for i in range(mc_iters)]
+mean_prediction_errors = [results[i][1] for i in range(mc_iters)]
+
+mean_estimation_errors = [sum(elements) / len(elements) for elements in zip(*mean_estimation_errors)]
+mean_prediction_errors = [sum(elements) / len(elements) for elements in zip(*mean_prediction_errors)]
     
 # print(estimators[-1],predictors[-1], states[-1])
 # exit()
