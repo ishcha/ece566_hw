@@ -10,7 +10,7 @@ a = 0.5
 b = 25
 c = 8
 omega = 1.2
-U = (0,10) #TODO: check if this is variance or std dev
+U = (0,10) 
 V = (0,1)
 
 def transition_distribution(prev_x, t):
