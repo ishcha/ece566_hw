@@ -1,16 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
-# np.random.seed(1000)
+from scipy.stats import norm, laplace
+# np.random.seed(42)
 
 K = 1000
 theta = 1
 
 ns = [6, 100]
 
-
 for n in ns:
-    sample_n_y = np.random.normal(0, theta, n)
+    sample_n_y = np.random.laplace(0, theta, n)
     estimation_errors = []
     for k in range(K):
         bootstrap_sample = np.random.choice(sample_n_y, n, replace=True)
@@ -27,17 +27,9 @@ for n in ns:
     
     gaussian_pdf = stats.norm.pdf(estimation_errors, 0, std)
     
-    # KDE for the empirical distribution
-    kde = stats.gaussian_kde(estimation_errors)
-    x_vals = np.linspace(min(estimation_errors), max(estimation_errors), 1000)
-    # print(x_vals)
-    kde_pdf = kde(x_vals)
     
-    l1_error = np.sum(np.abs(gaussian_pdf - kde_pdf))/len(kde_pdf)
     
-    print(f"L1 Error: {l1_error}")
-    
-    plt.plot(x_vals, kde_pdf, label="estimated pdf")
+    plt.hist(estimation_errors, bins=50, density=True, alpha=0.6, color='g', label="empirical pdf")
     
     plt.plot(estimation_errors, gaussian_pdf, label="gaussian pdf")
     plt.legend()
