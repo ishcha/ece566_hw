@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt
+np.random.seed(42)
 
 # load data 
 data = np.loadtxt('data.txt')
@@ -14,8 +15,8 @@ sigmas = []
 
 # initialize parameters
 pi = 0.5
-mu = [np.zeros(2), np.ones(2)]
-sigma = [np.eye(2), np.eye(2)]
+mu = [np.random.rand(2), np.random.rand(2)]
+sigma = [np.random.randn(2,2), np.random.randn(2,2)]
 
 pis.append(pi)
 mus.append(mu)
@@ -42,19 +43,30 @@ print(pis[-1])
 print(mus[-1])
 print(sigmas[-1])
 
-plt.figure()
-plt.plot(pis)
-plt.title('pi')
-plt.show()
+error_pis = [np.abs(pis[i] - pis[-1]) for i in range(len(pis))]
+error_mus0 = [np.linalg.norm(mus[i][0] - mus[-1][0]) for i in range(len(mus))]
+error_mus1 = [np.linalg.norm(mus[i][1] - mus[-1][1]) for i in range(len(mus))]
+error_sigmas0 = [np.linalg.norm(sigmas[i][0] - sigmas[-1][0]) for i in range(len(sigmas))]
+error_sigmas1 = [np.linalg.norm(sigmas[i][1] - sigmas[-1][1]) for i in range(len(sigmas))]
 
-plt.figure()
-plt.plot([x[0] for x in mus])
-plt.plot([x[1] for x in mus])
-plt.title('mu')
-plt.show()
+fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(8, 10))
 
-plt.figure()
-plt.plot([x[0] for x in sigmas])
-plt.plot([x[1] for x in sigmas])
-plt.title('sigma')
+# First subplot
+ax1.plot(error_pis)
+ax1.set_title('$error_{\pi_1}$')
+
+# Second subplot
+ax2.plot(error_mus0, label='$\mu_1$')
+ax2.plot(error_mus1, label='$\mu_2$')
+ax2.set_title('$error_{\mu}$')
+ax2.legend()
+
+# Third subplot
+ax3.plot(error_sigmas0, label='$\Sigma_1$')
+ax3.plot(error_sigmas1, label='$\Sigma_2$')
+ax3.set_title('$error_{\Sigma}$')
+ax3.legend()
+
+# Adjust spacing between subplots
+plt.tight_layout()
 plt.show()
