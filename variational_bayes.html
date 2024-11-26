@@ -1,0 +1,206 @@
+
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Sign in to My.ECE - My.ECE - U of I</title>
+		<link rel="SHORTCUT ICON" href="//ws.engr.illinois.edu/images/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><script src="/prototype.js"></script><script src="/common/scriptaculous/src/scriptaculous.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script><script type="text/javascript"> $.noConflict(); </script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript">if (Prototype.BrowserFeatures.ElementExtensions) {	    var disablePrototypeJS = function (method, pluginsToDisable) {	            var handler = function (event) {	                event.target[method] = undefined;	                setTimeout(function () {	                    delete event.target[method];	                }, 0);	            };	            pluginsToDisable.each(function (plugin) { 	                jQuery(window).on(method + '.bs.' + plugin, handler);	            });	        },	        pluginsToDisable = ['collapse', 'dropdown', 'modal', 'tooltip', 'popover', 'tab'];	    disablePrototypeJS('show', pluginsToDisable);	    disablePrototypeJS('hide', pluginsToDisable);	}	jQuery(document).ready(function ($) {	    $('.bs-example-tooltips').children().each(function () {	        $(this).tooltip();	    });	    $('.bs-example-popovers').children().each(function () {	            $(this).popover();	    });	});</script><link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i%7cBarlow+Condensed%7cPlayfair+Display%7cMontserrat:400,500,600,700,800%7cFjalla+One%7cLexend+Exa%7cMontserrat+Alternates:400,700">
+
+		<link href="/styles/genportal.css?v2.10" rel="stylesheet" type="text/css" />
+			<link href="/styles/ece.css" rel="stylesheet" type="text/css" />
+		
+		<script src="/scripts/disclosureMenu.js"></script>
+		<script src="/common/engr/scripts.js?v=1.02"></script>
+
+		
+	</head>
+
+	<body class="portal_login anon  prod is_portal" >
+
+		<header role="banner" class="portal_header">
+			<div id="skiptocontent"><a href="#content">skip to main content</a></div>
+
+			<div class="portal_container portal_campus">
+				<a href="http://illinois.edu/" target="_blank"><span>University of Illinois Urbana-Champaign</span></a>
+				<div id="portal_greeting">Not Logged In</div>
+			</div>
+
+
+			<div class="portal_container portal_banner">
+				<div class="portal_wordmark">
+					<div class="portal_blocki"><a href="https://illinois.edu" target="_blank">University of Illinois at Urbana-Champaign</a></div>
+					<div class="portal_site_identification">
+						
+							<div class="portal_parent_name"><a href="https://grainger.illinois.edu" target="_blank">The Grainger College of Engineering</a></div>
+						
+						<div class="portal_site_name"><a href="https://ece.illinois.edu/"><span>Electrical & Computer Engineering</span></a></div>
+					</div>
+				</div>
+
+				<button class="portal_navbar_toggle" type="button" aria-controls="portal_mainnav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="portal_navbar_toggle_icon"></span>
+				</button>
+			</div>
+
+			<nav aria-label="portal main navigation" id="xxxportal_mainnav">
+				<ul class="disclosure-nav" id="portal_mainnav">
+					<li>
+						<button type="button" aria-expanded="false" aria-controls="portal_menu">My.ECE</button>
+						<ul id="portal_menu">
+							<li><a href="/">Home</a></li>
+							<li><a href="/myinfo">My Info</a></li>
+							<li><a href="/chpwd.asp">Change Password</a></li>
+							<li><a href="/editprefs.asp">Change Preferences</a></li>
+							<li><a href="/refresh.asp">Refresh</a></li>
+							<li><A HREF="/login.asp" CLASS="banner3link">Sign In</A></li>
+						</ul>
+					</li>
+
+					<li>
+<button type="button" aria-expanded="false" aria-controls="administrative_menu">Administrative</button>
+<ul id="administrative_menu" class="">
+<li><a href="/attendance/">Attendance</a></li>
+<li><a href="/awards">Awards and Nomination Deadlines</a></li>
+<li><a href="/biodata/">Biodata</a></li>
+<li><a href="/blogs/">Blog tool</a></li>
+<li><a href="/elections/">Elections</a></li>
+<li><a href="/massmail/">Massmail</a></li>
+<li><a href="/secdocs/">Secure document delivery</a></li>
+<li><a href="/speaker_signup">Speaker Signup</a></li>
+<li><a href="/usersearch/">User search</a></li>
+
+</ul>
+</li>
+<li>
+<button type="button" aria-expanded="false" aria-controls="academic_menu">Academic</button>
+<ul id="academic_menu" class="">
+<li><a href="/fair/">Academic Integrity</a></li>
+<li><a href="/classplanning/">Class Planning</a></li>
+<li><a href="https://ece.illinois.edu/academics/ugrad/curriculum" target="_blank">Curriculum</a></li>
+<li><a href="/courses/">Courses</a></li>
+<li><a href="/gradapps/">Grad Applications</a></li>
+<li><a href="/gradrecs/">Grad Records</a></li>
+<li><a href="/gradebook/">Gradebook</a></li>
+<li><a href="/IndStudy">Independent Study</a></li>
+<li><a href="https://my.engr.illinois.edu/james-scholar/">James Scholar Contracts</a></li>
+<li><a href="/mentoring/">Mentoring Appointments</a></li>
+<li><a href="/probation/">Probation Appointments</a></li>
+<li><a href="/rosters/">Rosters</a></li>
+<li><a href="/textbooks/">Textbook Orders</a></li>
+<li><a href="/ugradrecs/">Undergrad Records</a></li>
+
+</ul>
+</li>
+<li>
+<button type="button" aria-expanded="false" aria-controls="communications_menu">Communications</button>
+<ul id="communications_menu" class="">
+<li><a href="/communications">Instructions</a></li>
+<li><a href="/announcements/submit.asp?anc">Submit an announcement</a></li>
+<li><a href="/digitalsigns/create_slide.asp">Submit a digital sign slide</a></li>
+<li><a href="https://calendars.illinois.edu/requestEvent/6805">Submit Student Events Calendar Item</a></li>
+<li><a href="https://calendars.illinois.edu/requestEvent/2622">Submit Illinois ECE Calendar Item</a></li>
+
+</ul>
+</li>
+<li>
+<button type="button" aria-expanded="false" aria-controls="facilities_menu">Facilities</button>
+<ul id="facilities_menu" class="">
+<li><a href="/digitalsigns/">Digital Signs</a></li>
+<li><a href="/webedit/chooseweb.asp?website=eceb-structure">ECE Building Facility Documents</a></li>
+<li><a href="/inventory/">Inventory</a></li>
+<li><a href="/keys/">Keys</a></li>
+<li><a href="/eceproxcards/">Lab Access Changes/Lookup</a></li>
+<li><a href="/people/">People</a></li>
+<li><a href="https://ece.illinois.edu/about/buildings/ecereservationpolicy">Room Reservations</a></li>
+<li><a href="/eceb-food-requests">Food Order Request Form</a></li>
+<li><a href="/facilities/room-access/">Room Access</a></li>
+<li><a href="/space/">Space</a></li>
+<li><a href="/inventory/pickup">Scrap/Surplus Pickup</a></li>
+<li><a href="/storeroom/">Supply Room</a></li>
+
+</ul>
+</li>
+<li>
+<button type="button" aria-expanded="false" aria-controls="finance_menu">Finance</button>
+<ul id="finance_menu" class="">
+<li><a href="/chart/">Chart</a></li>
+<li><a href="/cybercash/">I-Pay</a></li>
+<li><a href="/purchasing/">Purchasing</a></li>
+<li><a href="/statements/">Statements</a></li>
+<li><a href="/travel/">Travel</a></li>
+
+</ul>
+</li>
+<li>
+<button type="button" aria-expanded="false" aria-controls="hr_menu">HR</button>
+<ul id="hr_menu" class="">
+<li><a href="/appointments/">Appointments</a></li>
+<li><a href="/directory/">Directory</a></li>
+<li><a href="/groups/">Group Management</a></li>
+<li><a href="/review/">Review System</a></li>
+<li><a href="/timetracker/">TimeTracker</a></li>
+<li><a href="/vacation/">Vacation/Sick Leave Reporting</a></li>
+
+</ul>
+</li>
+
+				</ul>
+			</nav>
+
+
+
+
+
+		</header>
+
+
+		<main id="content" role="main">
+
+		<script src="/conversion-done.js?v=11/25/2024 2:58:24 PM" type="text/javascript" id="conversion-alert-script"></script>
+
+
+
+<div class="modulenormal" id="Module_loginform">
+<div class="module"><div class="module_header"><h1>Please Sign In</h1><div class="module_controls"><ul></ul></div></div><div class="module_content">
+<div class="loginform">
+<div id="illinois_login">
+<form method="get" action="/shibboleth.asp">
+<p><input type="submit" name="" id="" value="Illinois Login"/></p>
+</form>
+<p><a href="/guestlogin.asp">Or login as a guest</a></p>
+</div>
+</div>
+</div></div>
+</div>
+<div id="authz-link">
+</div>
+<div id="authz"></div>
+
+
+		</main>
+
+
+		<footer class="portal_footer">
+			<p><a href="https://ece.illinois.edu/">ILLINOIS ECE</a> | 306 N. Wright St. | Urbana, IL | 61801 | Ph: (217) 333-2300 | Fax: (217) 244-7075</p>
+			<p>Copyright &copy;2024 The Board of Trustees at the University of Illinois. All rights reserved.</p>
+			<p><a href="https://grainger.illinois.edu/cookie-policy" target="_blank">Cookie Policy</a> | <a href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy Statement</a></p>
+		</footer>
+
+
+		<div id="gototop" class="hidden">
+			<a href="#"><i class="fa fa-chevron-up"></i><span class="sr-only">Go to top</span></a>
+		</div>
+
+
+
+	</body>
+</html>
+
+
+
+
+
