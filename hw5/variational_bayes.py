@@ -48,12 +48,16 @@ for _ in range(20):
     responsibilities = np.array([[e_omega[j] + 0.5*e_precision[j] - 0.5*e_mu_yi[i][j] for j in range(num_mixtures)] for i in range(n)])
     responsibilities = responsibilities/np.sum(responsibilities, axis=1,keepdims=True)
     
-    
+B = np.linalg.inv(B_inverses[-1])
+nu = nus[-1]
+c = cs[-1]
 print("alpha:", alphas[-1])
-print("c:", cs[-1])
-print("nu:", nus[-1])
+print("c:", c)
+print("nu:", nu)
 print("mu_bar:", mu_bars[-1])
-print("B:", np.linalg.inv(B_inverses[-1]))
+print("B:", B)
+print('Mean of precision:', nu[0]*B[0], nu[1]*B[1])
+print('covariance of mean:', np.linalg.inv(c[0]*nu[0]*B[0]), np.linalg.inv(c[1]*nu[1]*B[1]))
 # exit()
 error_alphas = [np.abs(alphas[i] - alphas[-1]) for i in range(len(alphas))]
 error_cs = [np.abs(cs[i] - cs[-1]) for i in range(len(cs))]
